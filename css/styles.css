@@ -64,3 +64,31 @@ a:visited {
 a:hover {
   color:orange;
 }
+
+thead {
+  background-color:#00AAFF;
+}
+
+thead .skill {
+  background-color:#640051;
+}
+
+tbody {
+  color:#FF69B4;
+}
+
+tbody tr:nth-child(odd)  {
+  background-color:white;
+}
+
+tbody tr:nth-child(even)  {
+  background-color:#CCC;
+}
+
+.centre {
+  text-align:center;
+}
+
+table strong {
+  font-size:20px;
+}
