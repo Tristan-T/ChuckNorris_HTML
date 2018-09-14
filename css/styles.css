@@ -13,16 +13,18 @@ html {
   background-image: url("../images/background.jpg");
   background-size:cover;
   color:white;
+  font-family: "Montserrat", "Arial", "sans-serif";
 }
 
 
 body {
   width:600px;
+    margin:auto;
 }
 
 h2 {
   text-align:center;
-  font-family: "Montserrat", "Arial", "sans-serif";
+
 }
 
 img {
@@ -32,8 +34,8 @@ img {
 p {
   line-height:150%;
   text-indent:5px;
-  font-family: "Montserrat", "Arial", "sans-serif";
   margin:1em;
+  margin-top:30px;
 }
 
 .even {
@@ -45,7 +47,8 @@ p {
 }
 
 #beware {
-  height:300px;
+  height:150px;
+  float:right;
 }
 
 .skill {
@@ -71,6 +74,7 @@ thead {
 
 thead .skill {
   background-color:#640051;
+  padding-top: 5px;
 }
 
 tbody {
@@ -91,4 +95,26 @@ tbody tr:nth-child(even)  {
 
 table strong {
   font-size:20px;
+}
+
+h3 {
+  padding-top:10px;
+  border:1px #CCCCCC solid;
+}
+
+#chuck-jeune {
+  float:left;
+  padding-right:4px;
+}
+#pasflotte {
+  clear:left;
+  padding-top:5px;
+}
+
+#twitter {
+  position:fixed;bottom:40px;right:20px;
+}
+
+#facebook {
+  position:fixed;bottom:3px;right:20px;
 }
