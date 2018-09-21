@@ -14,6 +14,9 @@ html {
   color:white;
   background-size:100%;
   font-family: "Montserrat", "Arial", "sans-serif";
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
 }
 
 
@@ -141,18 +144,13 @@ nav a  {
   border:solid 2px black;
 }
 
-nav > div:first-child > a {
-  border:none;
-}
-
 #audio {
   padding-top:50px;
   padding-bottom:10px;
 }
 
 .submenu {
-  position:absolute;top:50px;right:0px;
-  border-top:30px;
+  position:absolute;top:50px;left:0px;
 }
 
 .posdiv {
