@@ -131,7 +131,6 @@ nav {
 }
 
 nav > div {
-  background-color:#5BBDBF;
   display:inline;
 }
 
@@ -142,6 +141,7 @@ nav a  {
   padding-left: 3px;
   padding-right: 3px;
   border:solid 2px black;
+  margin-top:5px;
 }
 
 #audio {
@@ -150,9 +150,13 @@ nav a  {
 }
 
 .submenu {
-  position:absolute;top:50px;left:0px;
+  position:absolute;top:40px;left:0px;
 }
 
 .posdiv {
   position:relative;
+}
+
+nav > div > div > div {
+    margin-bottom: 20px;
 }
