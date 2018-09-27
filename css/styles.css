@@ -19,9 +19,13 @@ html {
   background-position: center;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+}
 
 body {
-  width:600px;
+  width:1500px;
   margin:50px;
 }
 
@@ -127,19 +131,30 @@ nav {
   width:75%;
   margin-left: auto;
   margin-right: auto;
-  height:100px;
+  display:flex;
+  flex-direction: row;
+  /*height:200px;
+  background-color: #FF00FF;
+  */
+  align-items: center;
 }
 
-nav > div {
-  display:inline;
+nav div {
+  display: flex;
+  margin-bottom: 5px;
+  align-items: stretch;
 }
 
-nav a  {
+nav a {
+  display: block;
+  width:100px;
+  text-align: center;
   background-color: #c0d5c2;
   padding-top: 10px;
   padding-bottom: 5px;
   padding-left: 3px;
   padding-right: 3px;
+  border-radius:4px;
   border:solid 2px black;
 }
 
@@ -148,18 +163,58 @@ nav > div:first-child > a {
 }
 
 #audio {
-  padding-top:50px;
+  padding-top:30px;
   padding-bottom:10px;
 }
 
 .submenu {
-  position:absolute;top:45px;right:0px;
+  position:absolute;top:40px;right:0px;
 }
 
 .posdiv {
   position:relative;
 }
+nav > div > div > div > a {
+  background-color: pink;
+  color:red;
+}
 
-nav > div > div > div {
-  height:38px;
+ #accueil_bouton {
+  display:none;
+}
+
+#contact_bouton {
+  display: none;
+}
+
+/* NE FONCTIONNE PAS CORRECTEMENT ??*/
+
+nav:hover > div #accueil_bouton{
+  display:block;
+  z-index: 1;
+}
+
+nav:hover > div #contact_bouton{
+  display:block;
+  z-index: 1;
+}
+
+header {
+  display: flex;
+}
+
+article {
+  width:60%;
+  /*background-color: #CCC;*/
+}
+
+aside {
+  width:30%;
+  margin-left: 10%;
+  /*background-color: #CCC;*/
+}
+
+.puce {
+  color: yellow;
+  font-size:20px;
 }
