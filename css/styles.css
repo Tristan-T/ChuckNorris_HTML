@@ -10,10 +10,13 @@
 }
 
 html {
-  background-image: url("https://media.giphy.com/media/d2jfPv6CUzpopfLa/giphy.gif");
+  background-image: url("../images/background.gif");
   color:white;
   background-size:100%;
   font-family: "Montserrat", "Arial", "sans-serif";
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 
@@ -128,7 +131,6 @@ nav {
 }
 
 nav > div {
-  background-color:#5BBDBF;
   display:inline;
 }
 
@@ -142,7 +144,7 @@ nav a  {
 }
 
 nav > div:first-child > a {
-  border:none;
+  border:solid 2px brown ;
 }
 
 #audio {
@@ -151,10 +153,13 @@ nav > div:first-child > a {
 }
 
 .submenu {
-  position:absolute;top:50px;right:0px;
-  border-top:30px;
+  position:absolute;top:45px;right:0px;
 }
 
 .posdiv {
   position:relative;
+}
+
+nav > div > div > div {
+  height:38px;
 }
