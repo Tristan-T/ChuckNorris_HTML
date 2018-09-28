@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>Inscriptions Chuck &hearts;</title>
+            <link rel="shortcut icon" type="image/jpg" href="./images/favicon.jpg" />
+</head>
+
+<body>
+  <p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+    <header>
+        <blockquote>
+            <cite>
+         "Little John: Braddock ! Je vous préviens, attention où vous mettez les pieds !
+         Braddock : Je mets les pieds où je veux, Little John… et c'est souvent dans la gueule."
+         </cite>
+        </blockquote>
+        <nav>
+          <div class="posdiv"><a href="./index.html">Accueil</a>
+            <div class="submenu" id="accueil_bouton">
+              <div><a href="./one.html"><span class="puce">&hearts;</span>one</a></div>
+              <div><a href="./two.html"><span class="puce">&hearts;</span>two</a></div>
+              <div><a href="./three.html"><span class="puce">&hearts;</span>three</a></div>
+            </div>
+          </div>
+          <div><a href="./facts.html">Facts</a></div>
+          <div><a href="./news.html">Actualités</a></div>
+          <div class="posdiv"><a href="./contact.html">Contact</a>
+            <div class="submenu" id="contact_bouton">
+              <div><a href="./other.html"><span class="puce">&hearts;</span>other</a></div>
+              <div><a href="./another.html"><span class="puce">&hearts;</span>another</a></div>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+    <form id="big_text" action="sendToMySecondYearInIut.php" method="get">
+      <div id="en_colonne">
+      <fieldset class="fieldset_flex">
+        <legend>Informations personnelles</legend>
+          <label for="first_name_id">Nom*</label>
+          <input id="first_name_id" name="first_name" placeholder="Shush" type="text" autofocus required>
+
+          <label for="surname_id">Prénom</label>
+          <input id="surname_id" name="surname" placeholder="Maurice" type="text">
+
+          <label for="birthday_id">Date de naissance</label>
+          <input id="birthday_id" name="birthday" type="date">
+
+          <label for="email_id">Email*</label>
+          <input id="email_id" name="email" placeholder="yourmail@domain.com" type="email" required>
+
+          <label for="country_id"> Pays </label>
+          <select id="country_id" name="country">
+            <option value="france" selected> France </option>
+            <option value="usa"> U.S.A </option>
+            <option value="allemagne"> Allemagne </option>
+            <option value="chine"> Chine </option>
+            <option value="vietnam"> Viêt Nam </option>
+          </select>
+
+          <label for="gender_id">Genre</label>
+          <div class="block">
+          <input id="gender_id" name="gender" value="Male" type="radio"> Male
+          <input name="gender" value="Female" type="radio"> Female
+          <input name="gender" value="Non binary" type="radio"> Non Binary
+          <input name="gender" value="Chuck Norris" type="radio"> Chuck Norris
+          </div>
+      </fieldset>
+
+      <fieldset class="fieldset_flex">
+        <legend>Les sports de combats</legend>
+          <label for="karate_id"> Karaté level </label>
+          <input id="karate_id" name="karate" type="number" min="1" max="5" placeholder="1">
+
+          <label for="art_martiaux_id"> Arts Martiaux </label>
+          <select id="art_martiaux_id" name="art_martiaux" multiple="">
+            <option value="kungfu"> Kung Fu </option>
+            <option value="karate"> Karaté </option>
+            <option value="full_contact"> Full-contact </option>
+          </select>
+      </fieldset>
+
+      <fieldset class="fieldset_flex">
+        <legend>Inscription</legend>
+          <label for="engagement_id"> Niveau d'engagement </label>
+          <div class="block">
+          <input id="engagement_id" name="engagement" type="radio" value="basique"> Basique (5€)
+          <input name="engagement" type="radio" value="gold"> Gold (15€)
+          <input name="engagement" type="radio" value="tatane"> Tatane in your face (50€)
+          </div>
+
+          <label for="password_id">Password*</label>
+          <input id="password_id" name="password" type="password" required pattern="[a-zA-Z0-9]{8,}">
+
+          <label for="message_id"> Message d'amour pour Chuck </label>
+          <textarea id="message_id" placeholder="Chuck je t'aime"></textarea>
+
+          <br>
+          <div class="block">
+          <input id="clause_id" name="clause" type="checkbox" value="lu" required> J’ai bien lu les clauses que je n’ai pas lues
+          </div>
+      </fieldset>
+
+      <br>
+      <input type="submit" value="Envoyer">
+      </div>
+    </form>
+    <br>
+    <footer> <a href="#debut"> Retour au début </a> </footer>

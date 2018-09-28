@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <title>TD4 - Forms</title>
+
+    
+    <link rel="stylesheet" href="/ProgWeb-HTMLCSS/css/highlight-default.css">
+    
+
+    <link rel="stylesheet" href="/ProgWeb-HTMLCSS/css/main.css">
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/ProgWeb-HTMLCSS/assets/favicon.ico">
+
+    <link href="https://github.com/romainlebreton/ProgWeb-HTMLCSS/commits/gh-pages.atom" rel="alternate" title="Recent Commits to ProgWeb-HTMLCSS" type="application/atom+xml" >
+
+    <script src="/ProgWeb-HTMLCSS/js/polyfills.js"></script>
+  </head>
+  <body>
+
+    <ul class="menu dont-print" id="top-menu">
+      <li><a href="/ProgWeb-HTMLCSS/">Home</a></li>
+      <li><a href="https://github.com/romainlebreton/ProgWeb-HTMLCSS/blob/gh-pages/tutorials/tutorial4-en.md">Source</a></li>
+      <li><a href="https://github.com/romainlebreton/ProgWeb-HTMLCSS/edit/gh-pages/tutorials/tutorial4-en.md">Quick edit</a></li>
+      <li><a href="javascript:window.print()">Print</a></li>
+      
+    </ul>
+
+    <div class="main">
+      <div class="container">
+	<h1>TD4 - Forms <span class="subtitle">How to send data between webpages</span></h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>We are going to add a registration form to our site of fans of <strong>Chuck Norris</strong>
+using the <code class="highlighter-rouge">&lt;form&gt;</code> tag. This <code class="highlighter-rouge">&lt;form&gt;</code> tag will allow us to have answers to
+questions from the most open questions (“<em>What do you want to say to Chuck?</em>”)
+to the more closed-ended questions (“<em>Among these three choices what is your
+favorite sport?</em>”, “<em>What is your gender?</em>” … ). For each type of question,
+there is a corresponding tag such as <code class="highlighter-rouge">&lt;input&gt;</code> or <code class="highlighter-rouge">&lt;textarea&gt;</code> as we will see.</p>
+
+<h2 id="the-tags-form-and-input">The tags <code class="highlighter-rouge">&lt;form&gt;</code> and <code class="highlighter-rouge">&lt;input&gt;</code></h2>
+
+<p>The heart of the form consists of two types of tags: <code class="highlighter-rouge">&lt;form&gt;</code> and <code class="highlighter-rouge">&lt;input&gt;</code>.</p>
+
+<p>The tag <code class="highlighter-rouge">&lt;form&gt;</code> must englobe all the form related tags. Its attributes also
+contain many important information about the form:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">method</code>: Forms contain data (mostly typed by the user) that must be sent to
+another page to be processed. The values of the <code class="highlighter-rouge">method</code> attribute (<code class="highlighter-rouge">post</code> or
+<code class="highlighter-rouge">get</code>) tells the form how it will send the data to the processing webpage:</p>
+
+    <ul>
+      <li>
+        <p><code class="highlighter-rouge">get</code> sends data through the URL with a syntax like
+<code class="highlighter-rouge">index.html?name=Dupont&amp;login=dupo</code>. This method limits the size of the data
+sent by the form to about 2000 characters.</p>
+      </li>
+      <li>
+        <p><code class="highlighter-rouge">post</code> sends data together with the HTTP request and has no size limitation.</p>
+      </li>
+    </ul>
+
+    <p>More information about these methods in next year’s PHP course.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">action</code>: URL of the webpage to which we will send the data of the form.</p>
+  </li>
+</ul>
+
+<p>The <code class="highlighter-rouge">&lt;input&gt;</code> tag allows you to define different fields in which the user can
+enter data. The <code class="highlighter-rouge">&lt;input&gt;</code> tag has attributes:</p>
+
+<ul>
+  <li><a href="http://www.w3schools.com/tags/att_input_type.asp"><code class="highlighter-rouge">type</code></a>: defines the
+visual appearance of the field and the nature of the data that can be entered.</li>
+  <li><a href="http://www.w3schools.com/tags/att_input_name.asp"><code class="highlighter-rouge">name</code></a>: the variable name
+of the data filled in this <code class="highlighter-rouge">&lt;input&gt;</code>. In our previous example of
+<code class="highlighter-rouge">method="get"</code>, the form had two <code class="highlighter-rouge">&lt;input&gt;</code> of name <code class="highlighter-rouge">name</code> and <code class="highlighter-rouge">login</code>.</li>
+  <li><a href="http://www.w3schools.com/tags/att_input_value.asp"><code class="highlighter-rouge">value</code></a> (optional):
+Default value of the <code class="highlighter-rouge">&lt;input&gt;</code>, that is to say that the <code class="highlighter-rouge">&lt;input&gt;</code> will be
+prefilled with this value.</li>
+</ul>
+
+<p>Every form must contain a tag <code class="highlighter-rouge">&lt;input type="submit"&gt;</code>: this tag creates the
+<em>Submit</em> button that will trigger the sending of data when clicked on.</p>
+
+<div class="exercise-en" id="start">
+
+  <p>Let us see by ourselves how the value of an <code class="highlighter-rouge">&lt;input&gt;</code> is sent by a form.</p>
+
+  <ol>
+    <li>
+      <p>Create a new webpage <code class="highlighter-rouge">inscription.html</code> in the Chuck Norris website. This page
+will contain the inscription form to Chuck Norris’ fan-club.</p>
+
+      <p><strong>Tip:</strong> Do not forget to start every HTML webpage with the html basic
+structure seen in <a href="/ProgWeb-HTMLCSS/tutorials/tutorial2-en.html">tutorial 2</a>.</p>
+    </li>
+    <li>
+      <p>Add to <code class="highlighter-rouge">inscription.html</code> the following form:</p>
+
+      <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"sendToMySecondYearInIut.php"</span> <span class="na">method=</span><span class="s">"get"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"user_name"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"Envoyer"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>Click on the <em>Submit</em> button and look at the URL in the address bar. Clicking
+ on this button should send you to a page finishing by
+ <code class="highlighter-rouge">sendToMySecondYearInIut.php?user_name=dupont</code>.</p>
+
+      <p><strong>Note</strong>: it’s normal that the URL <code class="highlighter-rouge">sendToMySecondYearInIut.php</code> does not
+exist and that you see the famous <strong>404</strong> error. We will see next year how to
+write server-side scripts (in PHP) to process the form data.</p>
+    </li>
+  </ol>
+
+</div>
+
+<h2 id="the-tag-label">The tag <code class="highlighter-rouge">&lt;label&gt;</code></h2>
+
+<p>It would be nice to tell the user what our <code class="highlighter-rouge">&lt;input&gt;</code> field refers to. The
+<a href="http://www.w3schools.com/tags/tag_label.asp"><code class="highlighter-rouge">&lt;label&gt;</code> tag</a> will associate the
+question (“<em>Name ?</em>”) to the <code class="highlighter-rouge">&lt;input&gt;</code>. The <code class="highlighter-rouge">for</code> attribute of the <code class="highlighter-rouge">&lt;label&gt;</code>
+must contain the identifier (attribute <code class="highlighter-rouge">id</code>) of the associated <code class="highlighter-rouge">&lt;input&gt;</code> (so you
+must add this identifier). When the label is correctly filled, a click on the
+label will place the keyboard prompt in the corresponding <code class="highlighter-rouge">&lt;input&gt;</code> (try it!).</p>
+
+<div class="exercise-en" id="exlabel">
+
+  <ol>
+    <li>
+      <p>Replace the first <code class="highlighter-rouge">&lt;input&gt;</code> by the following code:</p>
+
+      <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"surname"</span><span class="nt">&gt;</span>Nom<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"surname"</span> <span class="na">name=</span><span class="s">"user_name"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+</code></pre></div>      </div>
+    </li>
+    <li>
+      <p>Add to this form an input for typing the first name. Verify that clicking on
+the label works.</p>
+    </li>
+    <li>
+      <p>Verify that both fields are in the URL when you click on the <em>Submit</em> button
+ (the URL must end with
+ <code class="highlighter-rouge">sendToMySecondYearInIut.php?user_name=dupont&amp;firstname=super</code> if the form
+ is still in <code class="highlighter-rouge">method="get"</code>).</p>
+    </li>
+    <li>
+      <p>The inputs appear on the same line. Which tag seen in last tutorial can you
+use to englobe the inputs so that you have a line break between the two
+lines?</p>
+    </li>
+  </ol>
+
+</div>
+
+<h2 id="the-main-types-of-input-tags">The main types of <code class="highlighter-rouge">&lt;input&gt;</code> tags</h2>
+
+<p>There are quite a number of types of <code class="highlighter-rouge">&lt;input&gt;</code>:</p>
+
+<ul>
+  <li>The <code class="highlighter-rouge">radio</code> type allows you to select only one of the possible options.</li>
+  <li>The <code class="highlighter-rouge">checkbox</code> type allows the user to select as many options as he wants.</li>
+  <li>The <code class="highlighter-rouge">password</code> type automatically hides the characters that are typed in.</li>
+  <li>The types <code class="highlighter-rouge">email</code>, <code class="highlighter-rouge">URL</code>, <code class="highlighter-rouge">tel</code>, <code class="highlighter-rouge">date</code>, <code class="highlighter-rouge">time</code> and <code class="highlighter-rouge">number</code> allow you to
+adapt the virtual keyboard when the page is displayed on a
+smartphone. Depending on the browser, a different layout may be associated.
+Validators are associated with these fields (as we will see later), for
+example, an <code class="highlighter-rouge">email</code> field value must contain an “@”.</li>
+</ul>
+
+<div class="exercise-en" id="exinput">
+
+  <p>With the help of <a href="http://www.w3schools.com/tags/att_input_type.asp">w3schools</a>,
+ add to the form the following <code class="highlighter-rouge">&lt;input&gt;</code> whose labels are:</p>
+
+  <ol>
+    <li>“Date de naissance” with the input type <code class="highlighter-rouge">date</code>.</li>
+    <li>“Mot de passe” with the input type <code class="highlighter-rouge">password</code>.</li>
+    <li>“Email” with the input type … <code class="highlighter-rouge">email</code>.</li>
+    <li>“Sexe” with the two values that you know. Which type should you use
+considering that users only have one gender.</li>
+    <li>“Niveau en karaté” with the input type <code class="highlighter-rouge">number</code> ranging from 0 to 5.</li>
+    <li>“Niveau d’engagement” with a choice among three values labeled “Basique (5
+€)”, “Gold (15 €)” and “Tatane in your face (50 €)”.</li>
+    <li>“J’ai bien lu les clauses que je n’ai pas lues” associated to a <code class="highlighter-rouge">checkbox</code>.</li>
+    <li>Make sure that every <code class="highlighter-rouge">&lt;input&gt;</code> is on a separate line.</li>
+    <li>Fill and submit your form in order to check that all the inputs work ;
+verify that all input names are in the URL.</li>
+  </ol>
+
+</div>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+  <li>
+    <p>Some of those input types were introduced with HTML5 and are not fully
+supported by all browsers (especially old versions of Internet Explorer). We
+recommend the website <a href="http://caniuse.com/">caniuse.com</a> to check the
+compatibility of HTML features. For instance, you can see that the types
+<code class="highlighter-rouge">date</code> and <code class="highlighter-rouge">time</code> are
+<a href="http://caniuse.com/#search=date">more or less compatible</a>. The type <code class="highlighter-rouge">number</code>
+is a <a href="http://caniuse.com/#search=number">bit more accepted</a>. You can notice
+some changes in appearance depending on the browser you are using.</p>
+  </li>
+  <li>
+    <p>About the password, you can notice that it is written in plain text the URL if
+you use <code class="highlighter-rouge">method="get"</code>. For this type of sensitive data, you should use
+<code class="highlighter-rouge">method="post"</code>, although it is not enough to guarantee the security of the
+data.</p>
+  </li>
+</ul>
+
+<h2 id="the-select-tag">The <code class="highlighter-rouge">&lt;select&gt;</code> tag</h2>
+
+<p>The <code class="highlighter-rouge">&lt;select&gt;</code> tag is made to display possible values in a drop-down menu. The
+<code class="highlighter-rouge">&lt;select&gt;</code> tag must have a <code class="highlighter-rouge">name</code> attribute. The possibles options of the
+<code class="highlighter-rouge">&lt;select&gt;</code> are given by <code class="highlighter-rouge">&lt;option value="your_value"&gt;</code> tags, that are put inside
+the <code class="highlighter-rouge">&lt;select&gt;</code>. You can group options together by using an
+<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Optgroup"><code class="highlighter-rouge">&lt;optgroup&gt;</code></a>
+tag.</p>
+
+<p>By default, you can only choose one of the possible
+options. However, you can enable multiple values by adding the attribute
+<code class="highlighter-rouge">multiple</code> to <code class="highlighter-rouge">&lt;select&gt;</code>: this attribute is not waiting for a value so we
+usually write</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"your_name"</span> <span class="na">multiple</span><span class="nt">&gt;</span>...<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<p>which is equivalent to</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">name=</span><span class="s">"your_name"</span> <span class="na">multiple=</span><span class="s">""</span><span class="nt">&gt;</span>...<span class="nt">&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<p>Similarly to <code class="highlighter-rouge">&lt;input&gt;</code>, we can associate a <code class="highlighter-rouge">&lt;label&gt;</code> to the <code class="highlighter-rouge">&lt;select&gt;</code>
+tag.</p>
+
+<div class="exercise-en" id="exlabel">
+
+  <p>With the help of <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select">developer.mozilla.org</a>, add the following <code class="highlighter-rouge">&lt;input&gt;</code> whose labels are:</p>
+
+  <ol>
+    <li>
+      <p>Add a <code class="highlighter-rouge">&lt;select&gt;</code> labeled “Pays d’origine” with possible options <code class="highlighter-rouge">U.S.A</code> ,
+<code class="highlighter-rouge">France</code>, <code class="highlighter-rouge">Allemagne</code>, <code class="highlighter-rouge">Chine</code> and <code class="highlighter-rouge">Viêt Nam</code> whose associated values must not
+depend on the language of the form (the <code class="highlighter-rouge">value</code> associated with <code class="highlighter-rouge">France</code> could
+be <code class="highlighter-rouge">fr</code> for instance). The user can select only one option. Group the options
+by continent.</p>
+    </li>
+    <li>
+      <p>Add another <code class="highlighter-rouge">&lt;select&gt;</code> labeled “Arts-martiaux préférés” with values “Kung
+fu”, “Karaté” and “Full-contact”. The user is allowed to select multiple
+values.</p>
+    </li>
+  </ol>
+
+</div>
+
+<h2 id="the-textarea-tag">The <code class="highlighter-rouge">&lt;textarea&gt;</code> tag</h2>
+
+<p>The
+<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea"><code class="highlighter-rouge">&lt;textarea&gt;</code> tag</a>
+proposes a large textbox so that the users can express themselves.</p>
+
+<div class="exercise-en" id="exlabel">
+
+  <ol>
+    <li>Add a large text box labeled “Message pour Chuck” on which the user can pour
+his heart out.</li>
+  </ol>
+
+</div>
+
+<h2 id="the-fieldset-tag">The <code class="highlighter-rouge">&lt;fieldset&gt;</code> tag</h2>
+
+<p>The <code class="highlighter-rouge">&lt;fieldset&gt;</code> tag is used to regroup different <code class="highlighter-rouge">&lt;input&gt;</code> together.</p>
+
+<div class="exercise-en" id="exfield">
+
+  <p>With the help of
+<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Fieldset">this page</a> and
+<a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/Formulaires/Comment_structurer_un_formulaire_HTML">this page</a>,
+regroup our inputs inside the three following groups:</p>
+
+  <ul>
+    <li>“Informations personnelles” (containing “Nom”, “Prénom”, “Email”, etc.),</li>
+    <li>“Les sports de combat” (containing “Sport de combat préféré”” and “Niveau en
+karaté”),</li>
+    <li>“Inscription” (containing “Message personnel à Chuck”, “Mot de passe”, the
+checkbox “J’ai bien lu..”, “Niveau d’engagement’, etc.).</li>
+  </ul>
+
+</div>
+
+<h2 id="ergonomics-and-user-friendliness">Ergonomics and user-friendliness</h2>
+
+<h3 id="navigation">Navigation</h3>
+
+<p>For advanced users, navigation using the key <code class="highlighter-rouge">Tab</code> allows browsing very quickly
+the form. The attribute <code class="highlighter-rouge">autofocus</code> allows to specifying what element of the form
+must have the focus when the page is loaded. The attribute <code class="highlighter-rouge">tabindex</code> specifies
+the order of elements when pressing the key <code class="highlighter-rouge">Tab</code>.</p>
+
+<div class="exercise-en" id="extab">
+
+  <p>Verify that you can access all the inputs using the key <code class="highlighter-rouge">Tab</code>. Change the
+order with the property <code class="highlighter-rouge">tabindex</code>.</p>
+
+</div>
+
+<h3 id="user-friendliness">User-friendliness</h3>
+
+<p>A few attributes improve the user-friendliness of the fields in your form:</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">placeholder</code>: display some text in the field that disappears as soon as the
+user types in something. You should use the placeholder to give information
+about the expected content. For instance, if you have specified a pattern (see
+later), you should explain it with the placeholder.</p>
+
+    <p>Example:  <code class="highlighter-rouge">placeholder=“Entrez votre nom ici"</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">checked</code> / <code class="highlighter-rouge">selected</code>: for inputs of type “radio” or “checkbox”, and for
+<code class="highlighter-rouge">&lt;option&gt;</code> respectively. This attribute is used to select/check an option by
+default. Useful when you know that one of the options will be used much more
+frequently than the others. You then save time for the user.</p>
+  </li>
+</ul>
+
+<div class="exercise-en">
+
+  <ol>
+    <li>Add a placeholder of value “yourmail@domain.com” in the input of type <code class="highlighter-rouge">email</code>.</li>
+    <li>Add a <code class="highlighter-rouge">placeholder</code> attribute in the <code class="highlighter-rouge">&lt;textarea&gt;</code> saying “Un inscrit sera
+tiré au sort, et verra son message transmis à Chuck Norris.”</li>
+    <li>Make sure that the country selected by default in “Pays d’origine” is France
+(regardless of the order of <code class="highlighter-rouge">&lt;option&gt;</code> tags in HTML).</li>
+  </ol>
+
+</div>
+
+<h3 id="content-validation">Content validation</h3>
+
+<p>The data that the user types in has to be checked by the server (cf. next year
+course). However, checks by the server require that the data is sent, that the
+server tests, then responds: the operation may be long.</p>
+
+<p>In order to avoid a useless wait to users of your form, you can ask the browser
+to directly perform certain validation tests, in order to prevent the common
+errors (ex: Bad phone number, Bad date…).</p>
+
+<p>Two attributes allow you to check the content of the form:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">required</code>: Specifies that the field must be completed. We commonly indicate
+required inputs to the user with a * in the label.</li>
+  <li>
+    <p><code class="highlighter-rouge">pattern</code>: attribute specific to open answers, <code class="highlighter-rouge">pattern</code> let you specify
+<a href="http://www.rexegg.com/">a regular expression</a>. This string obeys
+<a href="http://www.rexegg.com/regex-quickstart.html#ref">a particular syntax</a> and
+indicates to the browser which entries of the input are valid. The browser will
+refuse to send the form as long as some input is invalid.</p>
+
+    <p>Example: The pattern <code class="highlighter-rouge">0[1-9](\.\d{2}){4}</code> validates french phone numbers,
+while the pattern <code class="highlighter-rouge">[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}</code> will block the most
+obvious email address mistakes. You can find a large variety of patterns
+examples at <a href="http://html5pattern.com/">HTML5pattern</a>.<br />
+<strong>Note:</strong> HTML pattern test if the whole input is valid. So there is no need
+to use <code class="highlighter-rouge">^</code> and <code class="highlighter-rouge">$</code> as in classic regular expressions.</p>
+  </li>
+</ul>
+
+<div class="exercise-en" id="regulex">
+  <ol>
+    <li>Make the checkmark “J’ai bien lu les clauses que je n’ai pas lues”
+mandatory. Check if the form is not sent while this box is not checked</li>
+    <li>Make the inputs “Nom”, “Mot de passe” and “Email” mandatory.</li>
+    <li>By convention, the names of mandatory fields are followed by a <code class="highlighter-rouge">*</code>. Add it.</li>
+    <li>Add a pattern to the input of type password so that only characters of the
+Latin alphabet or digits are allowed.</li>
+    <li>Make sure that the password is at least 8 characters long.</li>
+  </ol>
+
+  <p><strong>Note:</strong> To prevent bugs while writing regular expressions, always use
+   <a href="https://jex.im/regulex">Regulex</a> while developing a regular
+   expression. Regulex will help you to visualize the state machine behind the
+   regular expression.</p>
+
+</div>
+
+
+
+      </div>
+
+      <footer class="footer">
+	<div class="container">
+	  <p><a rel="license"
+		href="https://creativecommons.org/licenses/by-sa/4.0/">
+	      <img alt="Creative Commons Licence" style="border-width:0"
+		   src="/ProgWeb-HTMLCSS/assets/80x15.png"></a>
+	    <a href="https://github.com/romainlebreton">Romain Lebreton</a>,
+	    Sébastien Gagné, Victor Poupet, Rémi Rabatel et Petru Valicov
+	    2018, licensed
+	    under <a rel="license" class="print-link"
+		     href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA
+	      4.0</a>.</p>
+
+	  <p class="dont-print">Source code available
+	    on <a href="https://github.com/romainlebreton/ProgWeb-HTMLCSS">GitHub</a>,
+	    static Website generated
+	    with <a href="https://jekyllrb.com/">Jekyll</a> and kindly
+	    hosted by <a href="https://pages.github.com/">GitHub</a>.
+	  <a href="https://github.com/defeo/class-boilerplate">Structure of the website</a> by <a href="http://defeo.lu">Luca De Feo</a></p>
+	</div>
+      </footer>
+    </div>
+
+    
+
+    
+    <script src="/ProgWeb-HTMLCSS/js/highlight.pack.js"></script>
+    <script>
+      hljs.configure({
+        tabReplace: '    '
+      });
+      hljs.initHighlightingOnLoad();
+    </script>
+    
+
+    
+
+    
+    
+  </body>
+</html>

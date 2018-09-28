@@ -141,8 +141,8 @@ nav {
 
 nav div {
   display: flex;
-  margin-bottom: 5px;
   align-items: stretch;
+  flex-direction: column;
 }
 
 nav a {
@@ -168,7 +168,8 @@ nav > div:first-child > a {
 }
 
 .submenu {
-  position:absolute;top:40px;right:0px;
+  position:absolute;top:35px;right:0px;
+  visibility:hidden;
 }
 
 .posdiv {
@@ -177,26 +178,11 @@ nav > div:first-child > a {
 nav > div > div > div > a {
   background-color: pink;
   color:red;
+  margin-top: 5px;
 }
 
- #accueil_bouton {
-  display:none;
-}
-
-#contact_bouton {
-  display: none;
-}
-
-/* NE FONCTIONNE PAS CORRECTEMENT ??*/
-
-nav:hover > div #accueil_bouton{
-  display:block;
-  z-index: 1;
-}
-
-nav:hover > div #contact_bouton{
-  display:block;
-  z-index: 1;
+.posdiv:hover > .submenu{
+  visibility:visible;
 }
 
 header {
@@ -217,4 +203,37 @@ aside {
 .puce {
   color: yellow;
   font-size:20px;
+}
+
+#en_colonne {
+  display:flex;
+  flex-direction: column;
+  width:35%;
+}
+
+.fieldset_flex {
+  display:flex;
+  flex-direction: column;
+}
+
+#block {
+  display: block;
+}
+
+label {
+  font-size: 25px;
+  color:gold;
+}
+
+input,select{
+  padding:5px;
+  font-size: 15px;
+}
+
+#big_text {
+  font-size: 17px;
+}
+
+#message_id:hover {
+  color:red;
 }
